@@ -1,8 +1,9 @@
 import React, { useState, useMemo } from 'react';
-import { 
-  LayoutGrid, ShoppingBag, ChevronDown, Minus, 
-  Heart, Eye, Grid2X2, Grid3X3, X, Plus, Headset 
+import {
+  LayoutGrid, ShoppingBag, ChevronDown, Minus,
+  Heart, Eye, Grid2X2, Grid3X3, X, Plus, Headset
 } from 'lucide-react';
+import { useCart } from '../../Context/CartContext';
 
 // === Assets ===
 import flowers1 from '../../assets/flowers1.webp';
@@ -31,12 +32,13 @@ const Heroproduct = () => {
   const [hoverCategory, setHoverCategory] = useState(null);
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
+
+  const { cartItems, addToCart: addToCartContext, getSubtotal } = useCart();
 
   const navigation = {
     "Shop by Categories": ["Bouquets", "Boxes", "Baskets", "Money Bouquets", "Vases", "Crochet Flowers"],
-    "Shop by Occasions": ["Birthday", "Anniversary",  "Valentines Day", "Mothers Day", "Fathers Day", "Eid & Ramadan"],
+    "Shop by Occasions": ["Birthday", "Anniversary", "Valentines Day", "Mothers Day", "Fathers Day", "Eid & Ramadan"],
     "Shop by Flowers": ["Flowers", "Sun Flowers", "Lilies", "Baby Breath", "Chrysanthemum"]
   };
 
@@ -70,8 +72,15 @@ const Heroproduct = () => {
     return activeFilter === 'all' ? products : products.filter(p => p.category === activeFilter);
   }, [activeFilter, products]);
 
-  const addToCart = (product) => {
-    setCart([...cart, product]);
+  const handleAddToCart = (product) => {
+    const productData = {
+      id: product.id,
+      title: product.name,
+      price: `Rs. ${product.price}`,
+      mainImg: product.image,
+      hoverImg: product.image,
+    };
+    addToCartContext(productData);
     alert(`${product.name} added to cart!`);
   };
 
@@ -93,14 +102,14 @@ const Heroproduct = () => {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-800 p-4 md:p-10 relative">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-start">
-        
+
         {/* Sidebar */}
         <aside className="w-full lg:w-64 space-y-8 lg:sticky lg:top-10 shrink-0">
           <div>
             <h3 className="text-xl font-bold mb-4 border-b pb-2 tracking-tight">Availability</h3>
             <div className="space-y-2.5 text-sm">
               <label className="flex items-center gap-2.5 cursor-pointer">
-                <input type="checkbox" defaultChecked className="accent-pink-600 w-4 h-4" /> 
+                <input type="checkbox" defaultChecked className="accent-pink-600 w-4 h-4" />
                 In stock ({products.length})
               </label>
             </div>
@@ -110,7 +119,7 @@ const Heroproduct = () => {
             <input type="range" max="160000" className="w-full h-1 bg-gray-200 accent-black rounded-lg appearance-none cursor-pointer" />
           </div>
           <div className="bg-pink-50 p-4 rounded-xl text-xs font-bold text-pink-700">
-            Cart ({cart.length}) | Wishlist ({wishlist.length})
+            Cart ({cartItems.length}) | Wishlist ({wishlist.length})
           </div>
         </aside>
 
@@ -140,11 +149,11 @@ const Heroproduct = () => {
           <div className="flex justify-between items-center mb-8 text-sm text-gray-500 bg-gray-50 p-4 rounded-lg border border-gray-100">
             <p className="font-medium">Showing {filteredProducts.length} items</p>
             <div className="flex items-center gap-4">
-               <div className="hidden sm:flex gap-1.5 text-gray-400 border border-gray-200 rounded-md p-1 bg-white">
-                 <button onClick={() => setCols(2)} className={`p-1 rounded ${cols === 2 ? 'bg-gray-100 text-black' : ''}`}><Grid2X2 size={18}/></button>
-                 <button onClick={() => setCols(3)} className={`p-1 rounded ${cols === 3 ? 'bg-gray-100 text-black' : ''}`}><LayoutGrid size={18}/></button>
-                 <button onClick={() => setCols(4)} className={`p-1 rounded ${cols === 4 ? 'bg-gray-100 text-black' : ''}`}><Grid3X3 size={18}/></button>
-               </div>
+              <div className="hidden sm:flex gap-1.5 text-gray-400 border border-gray-200 rounded-md p-1 bg-white">
+                <button onClick={() => setCols(2)} className={`p-1 rounded ${cols === 2 ? 'bg-gray-100 text-black' : ''}`}><Grid2X2 size={18} /></button>
+                <button onClick={() => setCols(3)} className={`p-1 rounded ${cols === 3 ? 'bg-gray-100 text-black' : ''}`}><LayoutGrid size={18} /></button>
+                <button onClick={() => setCols(4)} className={`p-1 rounded ${cols === 4 ? 'bg-gray-100 text-black' : ''}`}><Grid3X3 size={18} /></button>
+              </div>
             </div>
           </div>
 
@@ -154,7 +163,7 @@ const Heroproduct = () => {
               <div key={product.id} className="group cursor-pointer bg-white rounded-md overflow-hidden transition-all duration-300">
                 <div className="relative aspect-square bg-[#fbfbfb] overflow-hidden rounded-md border border-gray-50">
                   <img src={product.image} alt={product.name} className="w-full h-full object-contain p-6 mix-blend-multiply transition-transform duration-500 group-hover:scale-110" />
-                  
+
                   {/* Tooltip Icons */}
                   <div className="absolute inset-x-0 bottom-0 flex items-center justify-center gap-3 py-6 bg-linear-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 z-20">
                     <div className="relative group/tip">
@@ -172,7 +181,7 @@ const Heroproduct = () => {
                     </div>
 
                     <div className="relative group/tip">
-                      <button onClick={() => addToCart(product)} className="bg-white text-gray-700 p-3 rounded-full shadow-lg hover:bg-pink-600 hover:text-white transition-all">
+                      <button onClick={() => handleAddToCart(product)} className="bg-white text-gray-700 p-3 rounded-full shadow-lg hover:bg-pink-600 hover:text-white transition-all">
                         <ShoppingBag size={18} />
                       </button>
                       <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover/tip:opacity-100 whitespace-nowrap">Add to Cart</span>
@@ -205,7 +214,7 @@ const Heroproduct = () => {
               <h2 className="text-4xl font-serif font-bold text-gray-900 mt-2">{selectedProduct.name}</h2>
               <p className="text-3xl font-bold text-pink-700 mt-4">Rs.{selectedProduct.price}</p>
               <p className="text-gray-500 my-6 leading-relaxed">Experience the elegance of our hand-picked floral arrangements, designed to bring joy to any occasion.</p>
-              <button onClick={() => addToCart(selectedProduct)} className="w-full bg-gray-900 text-white py-4 rounded-xl font-bold hover:bg-pink-700 transition-all flex items-center justify-center gap-2">
+              <button onClick={() => handleAddToCart(selectedProduct)} className="w-full bg-gray-900 text-white py-4 rounded-xl font-bold hover:bg-pink-700 transition-all flex items-center justify-center gap-2">
                 <Plus size={20} /> Add to Cart
               </button>
             </div>

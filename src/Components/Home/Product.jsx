@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Flickity from 'flickity';
 import 'flickity/dist/flickity.min.css';
 import { Heart, Eye, ShoppingCart } from 'lucide-react';
+import { useCart } from '../../Context/CartContext';
 
 // Images
 import flowers1 from '../../assets/flowers1.webp';
@@ -19,6 +20,7 @@ import flowers12 from '../../assets/flowers12.webp';
 
 const ProductCarousel = () => {
   const flickityRef = useRef(null);
+  const { addToCart } = useCart();
 
   const images = [
     { main: flowers1, hover: flowers12 },
@@ -63,10 +65,15 @@ const ProductCarousel = () => {
     }
   }, []);
 
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    alert(`${product.title} `);
+  };
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
-        
+
         <h2 className="text-3xl font-serif font-bold text-center mb-10 text-gray-800">
           New Arrivals
         </h2>
@@ -74,7 +81,7 @@ const ProductCarousel = () => {
         <div ref={flickityRef} className="carousel">
           {products.map((product) => (
             <div key={product.id} className="carousel-cell w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-3">
-              
+
               <div className="group relative bg-white overflow-hidden shadow-sm border border-gray-100 rounded-xl">
 
                 {/* Badge */}
@@ -84,7 +91,7 @@ const ProductCarousel = () => {
 
                 {/* Image */}
                 <div className="relative h-80 overflow-hidden bg-gray-100">
-                  
+
                   <img
                     src={product.mainImg}
                     alt={product.title}
@@ -97,38 +104,23 @@ const ProductCarousel = () => {
                     className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-all duration-500"
                   />
 
-                  {/* Icons with Tooltip */}
+                  {/* Icons */}
                   <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
 
-                    {/* Wishlist */}
-                    <div className="relative group/icon">
-                      <button className="p-2 bg-white rounded-full text-gray-600 hover:bg-[#F6339A] hover:text-white transition shadow">
-                        <Heart size={18} />
-                      </button>
-                      <span className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover/icon:opacity-100 transition-all duration-200 whitespace-nowrap">
-                        Add to Wishlist
-                      </span>
-                    </div>
+                    <button className="p-2 bg-white rounded-full text-gray-600 hover:bg-[#F6339A] hover:text-white transition shadow">
+                      <Heart size={18} />
+                    </button>
 
-                    {/* Quick View */}
-                    <div className="relative group/icon">
-                      <button className="p-2 bg-white rounded-full text-gray-600 hover:bg-[#F6339A] hover:text-white transition shadow">
-                        <Eye size={18} />
-                      </button>
-                      <span className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover/icon:opacity-100 transition-all duration-200 whitespace-nowrap">
-                        Quick View
-                      </span>
-                    </div>
+                    <button className="p-2 bg-white rounded-full text-gray-600 hover:bg-[#F6339A] hover:text-white transition shadow">
+                      <Eye size={18} />
+                    </button>
 
-                    {/* Add to Cart */}
-                    <div className="relative group/icon">
-                      <button className="p-2 bg-white rounded-full text-gray-600 hover:bg-[#F6339A] hover:text-white transition shadow">
-                        <ShoppingCart size={18} />
-                      </button>
-                      <span className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover/icon:opacity-100 transition-all duration-200 whitespace-nowrap">
-                        Add to Cart
-                      </span>
-                    </div>
+                    <button
+                      onClick={() => handleAddToCart(product)}
+                      className="p-2 bg-white rounded-full text-gray-600 hover:bg-[#F6339A] hover:text-white transition shadow"
+                    >
+                      <ShoppingCart size={18} />
+                    </button>
 
                   </div>
                 </div>
@@ -149,7 +141,6 @@ const ProductCarousel = () => {
         </div>
       </div>
 
-      {/* Flickity dots color */}
       <style jsx global>{`
         .flickity-page-dots .dot {
           background: #ec4899;

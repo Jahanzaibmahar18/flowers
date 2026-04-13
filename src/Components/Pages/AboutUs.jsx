@@ -6,9 +6,9 @@ const AboutUs = () => {
   return (
     <div>
 
-
       <HeroAbout/>
       <Experience/>
+      
     </div>
   )
 }

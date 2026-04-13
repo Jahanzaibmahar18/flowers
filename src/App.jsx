@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // CSS import karna zaroori hai
 
+import { CartProvider } from './Context/CartContext';
 import Navbar from './Components/Common/Navbar';
 import Footer from './Components/Common/Footer';
 import HomePage from './Components/Pages/Home';
@@ -12,7 +13,8 @@ import OurOutlets from './Components/Pages/OurOutlets';
 import Blogs from './Components/Pages/Blogs';
 import ContactUs from './Components/Pages/ContactUs';
 import HeroAbout from './Components/Pages/AboutUs';
-import ScrollToTop from './Components/Common/ScrollToTop'; 
+import ScrollToTop from './Components/Common/ScrollToTop';
+import Addtocart from './Components/Common/Addtocart';
 
 function App() {
   // AOS Initialization
@@ -25,20 +27,23 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <ScrollToTop />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/make-your-own" element={<MakeYourOwn />} />
-        <Route path="/our-outlets" element={<OurOutlets />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/about-us" element={<HeroAbout />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <CartProvider>
+      <Router>
+        <ScrollToTop />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/make-your-own" element={<MakeYourOwn />} />
+          <Route path="/our-outlets" element={<OurOutlets />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/about-us" element={<HeroAbout />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/Addtocart" element={<Addtocart />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </CartProvider>
   );
 }
 
