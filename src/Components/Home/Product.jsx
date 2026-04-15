@@ -3,6 +3,7 @@ import Flickity from 'flickity';
 import 'flickity/dist/flickity.min.css';
 import { Heart, Eye, ShoppingCart } from 'lucide-react';
 import { useCart } from '../../Context/CartContext';
+import { toast } from 'react-toastify';
 
 // Images
 import flowers1 from '../../assets/flowers1.webp';
@@ -67,7 +68,7 @@ const ProductCarousel = () => {
 
   const handleAddToCart = (product) => {
     addToCart(product);
-    alert(`${product.title} `);
+    toast.success(`${product.title} added to cart!`);
   };
 
   return (

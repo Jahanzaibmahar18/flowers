@@ -5,52 +5,60 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
 
+    // ✅ ADD TO CART
     const addToCart = (product) => {
-        setCartItems((prevItems) => {
-            const existingItem = prevItems.find((item) => item.id === product.id);
+        const priceString = String(product.price).replace(/Rs\.?\s*/, '').replace(/,/g, '');
+        const price = parseFloat(priceString) || 0;
+
+        setCartItems((prev) => {
+            const existingItem = prev.find((item) => item.id === product.id);
 
             if (existingItem) {
-                return prevItems.map((item) =>
+                return prev.map((item) =>
                     item.id === product.id
                         ? { ...item, quantity: item.quantity + 1 }
                         : item
                 );
             }
 
-            return [...prevItems, { ...product, quantity: 1 }];
+            return [
+                ...prev,
+                {
+                    id: product.id,
+                    title: product.title,
+                    mainImg: product.mainImg,
+                    price,
+                    quantity: 1,
+                }
+            ];
         });
     };
 
-    const removeFromCart = (productId) => {
-        setCartItems((prevItems) =>
-            prevItems.filter((item) => item.id !== productId)
-        );
+    // ✅ REMOVE FROM CART
+    const removeFromCart = (id) => {
+        setCartItems((prev) => prev.filter((item) => item.id !== id));
     };
 
-    const updateQuantity = (productId, quantity) => {
-        if (quantity <= 0) {
-            removeFromCart(productId);
+    // ✅ UPDATE QUANTITY
+    const updateQuantity = (id, qty) => {
+        if (qty <= 0) {
+            setCartItems((prev) => prev.filter((item) => item.id !== id));
         } else {
-            setCartItems((prevItems) =>
-                prevItems.map((item) =>
-                    item.id === productId ? { ...item, quantity } : item
+            setCartItems((prev) =>
+                prev.map((item) =>
+                    item.id === id ? { ...item, quantity: qty } : item
                 )
             );
         }
     };
 
-    const getTotalItems = () => {
-        return cartItems.reduce((total, item) => total + item.quantity, 0);
-    };
+    // ✅ TOTAL ITEMS
+    const getTotalItems = () =>
+        cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-    const getSubtotal = (price) => {
-        if (price == null) return 0;
-        if (typeof price === 'number') return price;
-        const numericString = String(price).replace(/[^0-9.]/g, '');
-        if (!numericString) return 0;
-        const numericPrice = parseFloat(numericString);
-        return Number.isNaN(numericPrice) ? 0 : numericPrice;
-    };
+    // ✅ TOTAL PRICE
+    const getTotalPrice = () =>
+        cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     return (
         <CartContext.Provider
@@ -60,7 +68,7 @@ export const CartProvider = ({ children }) => {
                 removeFromCart,
                 updateQuantity,
                 getTotalItems,
-                getSubtotal,
+                getTotalPrice,
             }}
         >
             {children}
@@ -68,10 +76,4 @@ export const CartProvider = ({ children }) => {
     );
 };
 
-export const useCart = () => {
-    const context = useContext(CartContext);
-    if (!context) {
-        throw new Error('useCart must be used within a CartProvider');
-    }
-    return context;
-};
+export const useCart = () => useContext(CartContext);

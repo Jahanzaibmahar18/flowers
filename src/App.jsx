@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'; // useEffect add kiya
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // CSS import karna zaroori hai
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { CartProvider } from './Context/CartContext';
 import Navbar from './Components/Common/Navbar';
@@ -42,6 +44,7 @@ function App() {
           <Route path="/Addtocart" element={<Addtocart />} />
         </Routes>
         <Footer />
+        <ToastContainer position="top-right" autoClose={3000} />
       </Router>
     </CartProvider>
   );
