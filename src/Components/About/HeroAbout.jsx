@@ -48,7 +48,7 @@ const HeroAbout = () => {
 
           {/* About Text */}
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-200 leading-relaxed font-light">
-            Blossoms Florals is more than just a flower shop. We are curators of beauty, 
+             Flora Bloom is more than just a flower shop. We are curators of beauty, 
             bringing you the freshest blooms from across the globe to Lahore. Every 
             arrangement is handcrafted with love, precision, and a passion for 
             unforgettable moments.

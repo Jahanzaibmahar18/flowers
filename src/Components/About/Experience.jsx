@@ -41,7 +41,7 @@ const Experience = () => {
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mt-4 mb-6">Our Expertise</h2>
           <p className="text-gray-600 text-lg leading-relaxed">
             We craft every bouquet, chocolate gift, and arrangement with utmost care, 
-            ensuring each creation reflects your love and emotions. At Blossoms, 
+            ensuring each creation reflects your love and emotions. At Bloom , 
             every detail is thoughtfully designed to make your gifts truly meaningful.
           </p>
         </div>

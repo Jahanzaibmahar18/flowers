@@ -23,7 +23,7 @@ const Flowers = () => {
         
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-800">
-            Our Floral Collection
+            Our Flora Collection
           </h2>
           <div className="w-24 h-1 bg-pink-500 mx-auto mt-4 rounded-full"></div>
         </div>

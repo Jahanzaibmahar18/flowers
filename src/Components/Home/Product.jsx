@@ -48,7 +48,7 @@ const ProductCarousel = () => {
     id: i + 1,
     mainImg: img.main,
     hoverImg: img.hover,
-    title: `Floral Product ${i + 1}`,
+    title: `Flora Product ${i + 1}`,
     price: prices[i]
   }));
 

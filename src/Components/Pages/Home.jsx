@@ -31,7 +31,7 @@ const HomePage = () => {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-extrabold text-white tracking-tight leading-tight mb-4 drop-shadow-2xl">
-            Blossom<span className="text-pink-400"> Floral</span>
+            Flora<span className="text-pink-400"> Bloom</span>
           </h1>
 
           {/* Subheading */}
