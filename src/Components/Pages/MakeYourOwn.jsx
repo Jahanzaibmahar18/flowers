@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
-// Assets
 import flowers1 from '../../assets/flowers1.webp';
 import flowers2 from '../../assets/flowers2.webp';
 import flowers3 from '../../assets/flowers3.webp';
@@ -11,24 +10,24 @@ import box2 from '../../assets/box2.webp';
 import box3 from '../../assets/box3.webp';
 
 const MakeYourOwn = () => {
-  // Har column ke liye alag state
+
   const [hoverCol1, setHoverCol1] = useState(false);
   const [hoverCol2, setHoverCol2] = useState(false);
 
-  const column1 = [flowers1, flowers2, flowers3, flowers1, flowers2]; 
+  const column1 = [flowers1, flowers2, flowers3, flowers1, flowers2];
   const column2 = [box1, box2, box3, box1, box2];
 
-  const whatsappNumber = "+923001234567"; 
+  const whatsappNumber = "+923076341312";
   const message = "Hi! I want to customize a gift for a special occasion.";
 
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/923076341312?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
     <section className="bg-[#fdf8f8] py-16 px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
+
         {/* --- Left Side: Content --- */}
         <div className="space-y-6 text-center lg:text-left z-10">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 leading-tight">
@@ -39,8 +38,8 @@ const MakeYourOwn = () => {
             boxes just the way you like. Click the button below to connect with our experts
             and create a personalized gift for your special occasion.
           </p>
-          
-          <button 
+
+          <button
             onClick={handleWhatsApp}
             className="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#128C7E] transition-all shadow-xl hover:shadow-2xl active:scale-95 group"
           >
@@ -51,20 +50,20 @@ const MakeYourOwn = () => {
 
         {/* --- Right Side: Animated Photo Grid --- */}
         <div className="relative h-125 flex gap-4 justify-center overflow-hidden rounded-3xl">
-          
+
           {/* Column 1: Moving UP (Only stops when hoverCol1 is true) */}
-          <div 
+          <div
             className="w-1/2 flex flex-col gap-4 cursor-pointer"
             onMouseEnter={() => setHoverCol1(true)}
             onMouseLeave={() => setHoverCol1(false)}
           >
-            <motion.div 
+            <motion.div
               className="flex flex-col gap-4"
               animate={hoverCol1 ? {} : { y: [0, -800] }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 15, 
-                ease: "linear" 
+              transition={{
+                repeat: Infinity,
+                duration: 15,
+                ease: "linear"
               }}
             >
               {column1.map((img, index) => (
@@ -76,18 +75,18 @@ const MakeYourOwn = () => {
           </div>
 
           {/* Column 2: Moving DOWN (Only stops when hoverCol2 is true) */}
-          <div 
+          <div
             className="w-1/2 flex flex-col gap-4 cursor-pointer"
             onMouseEnter={() => setHoverCol2(true)}
             onMouseLeave={() => setHoverCol2(false)}
           >
-            <motion.div 
+            <motion.div
               className="flex flex-col gap-4"
               animate={hoverCol2 ? {} : { y: [-800, 0] }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 18, 
-                ease: "linear" 
+              transition={{
+                repeat: Infinity,
+                duration: 18,
+                ease: "linear"
               }}
             >
               {column2.map((img, index) => (

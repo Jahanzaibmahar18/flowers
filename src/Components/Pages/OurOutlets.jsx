@@ -13,33 +13,33 @@ const Outlets = () => {
     {
       id: 1,
       image: shop1,
-      city: "Gulberg, Lahore",
-      address: "Shop # 1, Ahad Heights, 137/P Mini Market Round About, Block P Gulberg 2, Lahore, 54660",
-      contact: "(042)35871115 | 0308-2502222",
+      city: "DHA , Bahawalpur",
+      address: "Shop # 1, Ahad Heights, 137/P Mini Market Round About, DHA Phase 1 , Bahawalpur, 54660",
+      contact: "03076341312",
       timing: "Monday - Sunday: 8:00 am - 12:00 am"
     },
     {
       id: 2,
       image: shop2,
-      city: "DHA Phase 3, Lahore",
-      address: "Shop # 45, Sector Z, DHA Phase 3, Near Y Block Market, Lahore, 54000",
-      contact: "(042)35692222 | 0300-8484844",
+      city: "DHA Phase 3, Bahawalpur",
+      address: "Shop # 45, Sector Z, DHA Phase 3, Near Y Block Market, Bahawalpur, 54000",
+      contact: "03076341312",
       timing: "Monday - Sunday: 9:00 am - 11:00 pm"
     },
     {
       id: 3,
       image: shop3,
-      city: "Johar Town, Lahore",
-      address: "G-3 Market, Near Emporium Mall, Johar Town, Lahore, 54782",
-      contact: "(042)35312345 | 0321-1234567",
+      city: "Iqbal Town, Bahawalpur",
+      address: "G-3 Market, Near Dobai Chowk, Iqbal Town, Bahawalpur, 54782",
+      contact: "03076341312",
       timing: "Monday - Sunday: 10:00 am - 11:00 pm"
     },
     {
       id: 4,
       image: shop4,
-      city: "Bahria Town, Lahore",
-      address: "Shop # 12, Sector C, Commercial Zone, Bahria Town, Lahore, 53720",
-      contact: "(042)35955555 | 0312-9998887",
+      city: "Commercial Area, Bahawalpur",
+      address: "Shop # 12, Sector C, Commercial Zone,Commercial Area, Bahawalpur, 53720",
+      contact: "03076341312",
       timing: "Monday - Sunday: 11:00 am - 10:00 pm"
     }
   ];
@@ -78,7 +78,7 @@ const Outlets = () => {
               <img 
                 src={outlet.image} 
                 alt={outlet.city} 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full  h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-md">
                 <span className="text-sm font-bold text-pink-700 uppercase tracking-wider">
@@ -115,10 +115,10 @@ const Outlets = () => {
 
       {/* --- Modal / Popup --- */}
       {selectedOutlet && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 ">
           {/* Background Blur */}
           <div 
-            className="absolute inset-0 bg-black/70 backdrop-blur-md"
+            className="absolute inset-0   bg-black/70 backdrop-blur-md"
             onClick={() => setSelectedOutlet(null)}
           ></div>
 
@@ -128,7 +128,7 @@ const Outlets = () => {
             {/* Close Button */}
             <button 
               onClick={() => setSelectedOutlet(null)}
-              className="absolute top-4 right-4 z-10 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors"
+              className="absolute top-2 right-4 z-10 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors"
             >
               <X size={24} className="text-gray-900" />
             </button>
@@ -144,9 +144,9 @@ const Outlets = () => {
 
             {/* Info Section */}
             <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto flex flex-col justify-center">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">{selectedOutlet.city}</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">{selectedOutlet.city}</h3>
               
-              <div className="space-y-6">
+              <div className="space-y--4">
                 <div className="flex items-start gap-4">
                   <div className="bg-pink-50 p-3 rounded-lg text-pink-600">
                     <MapPin size={24} />

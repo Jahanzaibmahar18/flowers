@@ -230,6 +230,24 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {/* MOBILE MENU */}
+      {isOpen && (
+        <div className="md:hidden bg-white shadow-lg">
+          <div className="px-4 pt-2 pb-3 space-y-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-pink-500"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

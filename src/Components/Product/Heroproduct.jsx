@@ -68,13 +68,13 @@ const Heroproduct = () => {
               </label>
             </div>
           </div>
-          <div className="border-t pt-6">
+          {/* <div className="border-t pt-6">
             <h3 className="text-xl font-bold mb-4 flex justify-between items-center tracking-tight">Price <Minus size={16} /></h3>
             <input type="range" max="160000" className="w-full h-1 bg-gray-200 accent-black rounded-lg appearance-none cursor-pointer" />
-          </div>
-          <div className="bg-pink-50 p-4 rounded-xl text-xs font-bold text-pink-700">
+          </div> */}
+          {/* <div className="bg-pink-50 p-4 rounded-xl text-xs font-bold text-pink-700">
             Cart ({cartItems.length}) | Wishlist ({wishlist.length})
-          </div>
+          </div> */}
         </aside>
 
         {/* Main Content */}
