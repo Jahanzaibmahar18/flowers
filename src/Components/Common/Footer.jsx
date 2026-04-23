@@ -78,8 +78,8 @@ const Footer = () => {
           </p>
           <div className="space-y-4 text-[13px] border-l-2 border-gray-800 pl-4">
             <p className="font-bold text-pink-400 tracking-tighter">GULBERG | DHA | JOHAR TOWN | FALCON DOWNTOWN</p>
-            <p className="flex items-center gap-2"><span className="text-pink-500 font-bold">T:</span> +92 304 2502222</p>
-            <p className="flex items-center gap-2"><span className="text-pink-500 font-bold">E:</span> info@blossomsflorals.com</p>
+            <p className="flex items-center gap-2"><span className="text-pink-500 font-bold">T:</span> +92 3076341312</p>
+            <p className="flex items-center gap-2"><span className="text-pink-500 font-bold">E:</span> info@floralbloom.com</p>
           </div>
         </div>
       </div>
@@ -88,9 +88,9 @@ const Footer = () => {
       <div className="border-t border-gray-800 pt-10 mt-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
           <p className="text-xs text-gray-600 font-medium">
-            © 2026 Blossoms Florals. Crafted with love for flowers.
+            © 2026  Floral Bloom. Crafted with love for flowers.
           </p>
-          <p>Designed by jahanzaib mahar</p>
+          <p>Designed by <br /> <span className="text-pink-500 font-bold">jahanzaib mahar</span></p>
           <div className="flex flex-wrap justify-center gap-4">
             <div className="px-4 py-1.5 bg-gray-800/50 rounded-md text-[10px] font-black text-white/80 border border-gray-700">JAZZCASH</div>
             <div className="px-4 py-1.5 bg-gray-800/50 rounded-md text-[10px] font-black text-orange-500 border border-gray-700">NAYAPAY</div>

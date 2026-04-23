@@ -22,7 +22,7 @@ const ContactUs = () => {
         <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4">Contact Us</h2>
         <p className="text-gray-600 text-lg">
           Please use the below form. You can also call customer service on 
-          <span className="text-pink-700 font-bold ml-1">+92 304 25022222</span>
+          <span className="text-pink-700 font-bold ml-1">+92 3076341312</span>
         </p>
       </div>
 
@@ -48,7 +48,7 @@ const ContactUs = () => {
               </div>
               <div>
                 <p className="font-bold text-gray-900">Customer Care</p>
-                <p className="text-gray-600">+92 304 25022222</p>
+                <p className="text-gray-600">+92 3076341312</p>
               </div>
             </div>
 
@@ -70,7 +70,7 @@ const ContactUs = () => {
               </div>
               <div>
                 <p className="font-bold text-gray-900">Opening Hours</p>
-                <p className="text-gray-600">Mon - Sun 10:00am - 10:00pm</p>
+                <p className="text-gray-600">Mon - Sun 08:00am - 10:00pm</p>
               </div>
             </div>
           </div>
