@@ -17,7 +17,6 @@ const ContactUs = () => {
 
   return (
     <section className="py-16 px-6 bg-white max-w-7xl mx-auto">
-      {/* --- Main Header --- */}
       <div className="mb-12">
         <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4">Contact Us</h2>
         <p className="text-gray-600 text-lg">
@@ -28,7 +27,6 @@ const ContactUs = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         
-        {/* --- Left Side: Support Info --- */}
         <div className="space-y-8">
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
@@ -41,7 +39,6 @@ const ContactUs = () => {
           </div>
 
           <div className="space-y-6">
-            {/* Customer Care */}
             <div className="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-100">
               <div className="bg-white p-3 rounded-xl shadow-sm text-pink-600">
                 <Phone size={24} />
@@ -52,7 +49,6 @@ const ContactUs = () => {
               </div>
             </div>
 
-            {/* Email */}
             <div className="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-100">
               <div className="bg-white p-3 rounded-xl shadow-sm text-pink-600">
                 <Mail size={24} />
@@ -63,7 +59,6 @@ const ContactUs = () => {
               </div>
             </div>
 
-            {/* Timing */}
             <div className="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-100">
               <div className="bg-white p-3 rounded-xl shadow-sm text-pink-600">
                 <Clock size={24} />
@@ -76,7 +71,6 @@ const ContactUs = () => {
           </div>
         </div>
 
-        {/* --- Right Side: Contact Form --- */}
         <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-xl shadow-gray-100">
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-2">Send us a Message</h3>

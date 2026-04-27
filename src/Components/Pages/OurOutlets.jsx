@@ -46,7 +46,6 @@ const Outlets = () => {
 
   return (
     <section className="py-16 px-6 bg-white max-w-7xl mx-auto">
-      {/* --- Header Section --- */}
       <div className="text-center mb-12">
         <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4 tracking-tight">
           Our Outlets
@@ -65,7 +64,6 @@ const Outlets = () => {
         </div>
       </div>
 
-      {/* --- Cards Grid --- */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {outletsData.map((outlet) => (
           <div 
@@ -73,7 +71,6 @@ const Outlets = () => {
             onClick={() => setSelectedOutlet(outlet)}
             className="group cursor-pointer bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
           >
-            {/* Image Section */}
             <div className="relative h-72 overflow-hidden">
               <img 
                 src={outlet.image} 
@@ -87,7 +84,6 @@ const Outlets = () => {
               </div>
             </div>
 
-            {/* Data Section */}
             <div className="p-8 space-y-5">
               <h3 className="text-2xl font-bold text-gray-900 border-b pb-3 border-gray-200">
                 {outlet.city}
@@ -113,19 +109,15 @@ const Outlets = () => {
         ))}
       </div>
 
-      {/* --- Modal / Popup --- */}
       {selectedOutlet && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 ">
-          {/* Background Blur */}
           <div 
             className="absolute inset-0   bg-black/70 backdrop-blur-md"
             onClick={() => setSelectedOutlet(null)}
           ></div>
 
-          {/* Modal Content */}
           <div className="relative bg-white w-full max-w-5xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row animate-in fade-in zoom-in duration-300">
             
-            {/* Close Button */}
             <button 
               onClick={() => setSelectedOutlet(null)}
               className="absolute top-2 right-4 z-10 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors"
@@ -133,16 +125,14 @@ const Outlets = () => {
               <X size={24} className="text-gray-900" />
             </button>
 
-            {/* Full Image Section */}
             <div className="w-full md:w-1/2 bg-black flex items-center justify-center">
               <img 
                 src={selectedOutlet.image} 
                 alt={selectedOutlet.city} 
-                className="w-full h-full object-contain" // "object-contain" poori image dikhata hai
+                className="w-full h-full object-contain" 
               />
             </div>
 
-            {/* Info Section */}
             <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto flex flex-col justify-center">
               <h3 className="text-3xl font-bold text-gray-900 mb-2">{selectedOutlet.city}</h3>
               

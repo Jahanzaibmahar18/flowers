@@ -11,7 +11,6 @@ const Addtocart = () => {
         getTotalPrice
     } = useCart();
 
-    // ✅ EMPTY CART UI
     if (cartItems.length === 0) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
@@ -43,7 +42,6 @@ const Addtocart = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-                    {/* CART TABLE */}
                     <div className="lg:col-span-2">
 
                         <div className="bg-white shadow rounded-lg overflow-x-auto">
@@ -77,7 +75,6 @@ const Addtocart = () => {
                                                 </span>
                                             </td>
 
-                                            {/* PRICE */}
                                             <td className="p-4 text-pink-600 font-semibold">
                                                 Rs. {item.price.toLocaleString()}
                                             </td>
@@ -111,12 +108,10 @@ const Addtocart = () => {
                                                 </div>
                                             </td>
 
-                                            {/* TOTAL */}
                                             <td className="p-4 font-bold">
                                                 Rs. {(item.price * item.quantity).toLocaleString()}
                                             </td>
 
-                                            {/* REMOVE */}
                                             <td className="p-4">
                                                 <button
                                                     onClick={() => removeFromCart(item.id)}
@@ -136,7 +131,6 @@ const Addtocart = () => {
                         </div>
                     </div>
 
-                    {/* ORDER SUMMARY */}
                     <div className="bg-white p-6 rounded-lg shadow h-fit">
 
                         <h2 className="text-xl font-bold mb-6">

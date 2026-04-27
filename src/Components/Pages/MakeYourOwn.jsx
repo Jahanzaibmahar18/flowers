@@ -28,7 +28,6 @@ const MakeYourOwn = () => {
     <section className="bg-[#fdf8f8] py-16 px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-        {/* --- Left Side: Content --- */}
         <div className="space-y-6 text-center lg:text-left z-10">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 leading-tight">
             Your Vision, <span className="text-pink-600">Our Creation</span>
@@ -48,10 +47,8 @@ const MakeYourOwn = () => {
           </button>
         </div>
 
-        {/* --- Right Side: Animated Photo Grid --- */}
         <div className="relative h-125 flex gap-4 justify-center overflow-hidden rounded-3xl">
 
-          {/* Column 1: Moving UP (Only stops when hoverCol1 is true) */}
           <div
             className="w-1/2 flex flex-col gap-4 cursor-pointer"
             onMouseEnter={() => setHoverCol1(true)}
@@ -74,7 +71,6 @@ const MakeYourOwn = () => {
             </motion.div>
           </div>
 
-          {/* Column 2: Moving DOWN (Only stops when hoverCol2 is true) */}
           <div
             className="w-1/2 flex flex-col gap-4 cursor-pointer"
             onMouseEnter={() => setHoverCol2(true)}
@@ -97,7 +93,6 @@ const MakeYourOwn = () => {
             </motion.div>
           </div>
 
-          {/* Overlays (Fading effect) */}
           <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-[#fdf8f8] to-transparent z-10 pointer-events-none"></div>
           <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-[#fdf8f8] to-transparent z-10 pointer-events-none"></div>
         </div>

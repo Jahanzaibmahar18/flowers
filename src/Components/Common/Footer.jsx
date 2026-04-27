@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Custom SVG Icons (Taake library export ka error kabhi na aaye)
 const Icon = ({ path }) => (
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d={path} />
@@ -19,7 +18,6 @@ const Footer = () => {
     <footer className="bg-gray-900 text-gray-300 pt-16 pb-8 px-4 font-sans border-t-4 border-pink-500">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 
-        {/* Line 1: Quick Links */}
         <div>
           <h3 className="text-white font-bold text-lg mb-6 border-b-2 border-pink-500 w-fit uppercase tracking-wider">Quick Links</h3>
           <ul className="space-y-3 text-sm">
@@ -31,7 +29,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Line 2: Shop Categories */}
         <div>
           <h3 className="text-white font-bold text-lg mb-6 border-b-2 border-pink-500 w-fit uppercase tracking-wider">Shop Categories</h3>
           <ul className="space-y-3 text-sm">
@@ -43,7 +40,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Line 3: Newsletter & Social */}
         <div>
           <h3 className="text-white font-bold text-lg mb-4 uppercase tracking-wider">Join Our Bloom</h3>
           <p className="text-sm mb-4 text-gray-400 leading-relaxed">Subscribe for exclusive store updates and discounts.</p>
@@ -70,7 +66,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Line 4: About Us */}
         <div>
           <h3 className="text-white font-bold text-lg mb-4 uppercase tracking-wider italic">About Us</h3>
           <p className="text-sm text-gray-400 mb-6 leading-relaxed">
@@ -84,14 +79,13 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Payment Section */}
       <div className="border-t border-gray-800 pt-10 mt-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
           <p className="text-xs text-gray-600 font-medium">
-            © 2026  Floral Bloom. Crafted with love for flowers.
+            © 2026  Flora Bloom. Crafted with love for flowers.
           </p>
           <p>Designed by <br /> <span className="text-pink-500 font-bold">jahanzaib mahar</span></p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4"> 
             <div className="px-4 py-1.5 bg-gray-800/50 rounded-md text-[10px] font-black text-white/80 border border-gray-700">JAZZCASH</div>
             <div className="px-4 py-1.5 bg-gray-800/50 rounded-md text-[10px] font-black text-orange-500 border border-gray-700">NAYAPAY</div>
             <div className="px-4 py-1.5 bg-gray-800/50 rounded-md text-[10px] font-black text-teal-400 border border-gray-700">SADAPAY</div>

@@ -35,7 +35,6 @@ const Experience = () => {
     <section className="py-24 px-6 bg-[#fcfcfc]">
       <div className="max-w-7xl mx-auto">
         
-        {/* --- Header Section --- */}
         <div className="max-w-3xl mb-16">
           <span className="text-pink-600 font-bold uppercase tracking-widest text-sm">Why Choose Us</span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mt-4 mb-6">Our Expertise</h2>
@@ -46,9 +45,7 @@ const Experience = () => {
           </p>
         </div>
 
-        {/* --- Experience Cards Grid --- */}
-        {/* 'items-start' ensures all cards align to the top.
-            'md:flex-row' makes them side-by-side on desktop. */}
+       
         <div className="flex flex-col md:flex-row items-start gap-8">
           {experiences.map((item, index) => (
             <motion.div
@@ -57,10 +54,8 @@ const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              // item.size defines the varying height, creating the stair effect downwards
               className={`flex-1 w-full bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group border border-gray-100 flex flex-col ${item.size}`}
             >
-              {/* Image Container - Fixed height for images */}
               <div className="h-64 overflow-hidden shrink-0">
                 <img 
                   src={item.image} 
@@ -69,7 +64,6 @@ const Experience = () => {
                 />
               </div>
 
-              {/* Text Content - Expands vertically within the defined card height */}
               <div className="p-8 flex flex-col grow">
                 <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4 group-hover:text-pink-600 transition-colors">
                   {item.title}

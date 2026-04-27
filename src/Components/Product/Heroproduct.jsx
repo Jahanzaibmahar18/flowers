@@ -57,7 +57,6 @@ const Heroproduct = () => {
     <div className="min-h-screen bg-white font-sans text-gray-800 p-4 md:p-10 relative">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-start">
 
-        {/* Sidebar */}
         <aside className="w-full lg:w-64 space-y-8 lg:sticky lg:top-10 shrink-0">
           <div>
             <h3 className="text-xl font-bold mb-4 border-b pb-2 tracking-tight">Availability</h3>
@@ -68,18 +67,10 @@ const Heroproduct = () => {
               </label>
             </div>
           </div>
-          {/* <div className="border-t pt-6">
-            <h3 className="text-xl font-bold mb-4 flex justify-between items-center tracking-tight">Price <Minus size={16} /></h3>
-            <input type="range" max="160000" className="w-full h-1 bg-gray-200 accent-black rounded-lg appearance-none cursor-pointer" />
-          </div> */}
-          {/* <div className="bg-pink-50 p-4 rounded-xl text-xs font-bold text-pink-700">
-            Cart ({cartItems.length}) | Wishlist ({wishlist.length})
-          </div> */}
+        
         </aside>
 
-        {/* Main Content */}
         <main className="grow">
-          {/* Categories Navigation */}
           <div className="mb-10 relative border-b border-gray-100 pb-4">
             <div className="flex flex-wrap gap-12 justify-start items-center">
               {Object.keys(navigation).map((catHeading) => (
@@ -99,7 +90,6 @@ const Heroproduct = () => {
             </div>
           </div>
 
-          {/* Grid View Controls */}
           <div className="flex justify-between items-center mb-8 text-sm text-gray-500 bg-gray-50 p-4 rounded-lg border border-gray-100">
             <p className="font-medium">Showing {filteredProducts.length} items</p>
             <div className="flex items-center gap-4">
@@ -111,14 +101,12 @@ const Heroproduct = () => {
             </div>
           </div>
 
-          {/* Product Grid */}
           <div className={`grid ${getGridClass()} gap-x-6 gap-y-10 transition-all duration-500`}>
             {filteredProducts.map((product) => (
               <div key={product.id} className="group cursor-pointer bg-white rounded-md overflow-hidden transition-all duration-300">
                 <div className="relative aspect-square bg-[#fbfbfb] overflow-hidden rounded-md border border-gray-50">
                   <img src={product.image} alt={product.name} className="w-full h-full object-contain p-6 mix-blend-multiply transition-transform duration-500 group-hover:scale-110" />
 
-                  {/* Tooltip Icons */}
                   <div className="absolute inset-x-0 bottom-0 flex items-center justify-center gap-3 py-6 bg-linear-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 z-20">
                     <div className="relative group/tip">
                       <button onClick={() => toggleWishlist(product)} className={`p-3 rounded-full shadow-lg ${wishlist.find(i => i.id === product.id) ? 'bg-pink-600 text-white' : 'bg-white text-gray-700 hover:bg-pink-600 hover:text-white'}`}>
@@ -152,7 +140,6 @@ const Heroproduct = () => {
         </main>
       </div>
 
-      {/* Quick View Modal */}
       {selectedProduct && (
         <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-md" onClick={() => setSelectedProduct(null)}></div>

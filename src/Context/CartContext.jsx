@@ -5,7 +5,6 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
 
-    // ✅ ADD TO CART
     const addToCart = (product) => {
         const priceString = String(product.price).replace(/Rs\.?\s*/, '').replace(/,/g, '');
         const price = parseFloat(priceString) || 0;
@@ -34,12 +33,10 @@ export const CartProvider = ({ children }) => {
         });
     };
 
-    // ✅ REMOVE FROM CART
     const removeFromCart = (id) => {
         setCartItems((prev) => prev.filter((item) => item.id !== id));
     };
 
-    // ✅ UPDATE QUANTITY
     const updateQuantity = (id, qty) => {
         if (qty <= 0) {
             setCartItems((prev) => prev.filter((item) => item.id !== id));
@@ -52,11 +49,9 @@ export const CartProvider = ({ children }) => {
         }
     };
 
-    // ✅ TOTAL ITEMS
     const getTotalItems = () =>
         cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-    // ✅ TOTAL PRICE
     const getTotalPrice = () =>
         cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 

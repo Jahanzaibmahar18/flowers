@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, X, ArrowRight } from 'lucide-react';
 
-// Assets
 import b1 from '../../assets/b1.webp';
 import b2 from '../../assets/b2.webp';
 import b3 from '../../assets/b3.webp';
@@ -88,10 +87,8 @@ const Blogs = () => {
 
   return (
     <section className="py-20 px-6 bg-[#fcfcfc] relative">
-      {/* Background Section */}
       <div className={`max-w-7xl mx-auto transition-all duration-500 ${selectedBlog ? 'blur-md brightness-75 scale-[0.98] pointer-events-none' : ''}`}>
         
-        {/* Heading Section */}
         <div className="flex justify-between items-end mb-12 border-b border-gray-200 pb-6">
           <div>
             <h2 className="text-4xl font-serif font-bold text-gray-900 tracking-tight">Our Latest Blogs</h2>
@@ -99,7 +96,6 @@ const Blogs = () => {
           </div>
         </div>
 
-        {/* Blogs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {blogData.map((blog) => (
             <article 
@@ -134,7 +130,6 @@ const Blogs = () => {
         </div>
       </div>
 
-      {/* Modal Popup Overlay */}
       {selectedBlog && (
         <div className="fixed inset-0 z-100 flex items-center justify-center p-4 md:p-10">
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setSelectedBlog(null)}></div>
@@ -147,12 +142,10 @@ const Blogs = () => {
               <X size={24} />
             </button>
 
-            {/* Modal Image */}
             <div className="md:w-1/2 h-72 md:h-auto overflow-hidden">
               <img src={selectedBlog.image} alt={selectedBlog.title} className="w-full h-full object-cover" />
             </div>
 
-            {/* Modal Content */}
             <div className="md:w-1/2 p-8 md:p-12 space-y-6 flex flex-col justify-center bg-white">
               <div className="flex items-center gap-2 text-pink-600 text-[10px] font-bold uppercase tracking-widest">
                 <Calendar size={14} /> {selectedBlog.date} — {selectedBlog.category}

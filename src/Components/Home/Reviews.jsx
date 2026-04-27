@@ -14,11 +14,9 @@ const reviewsData = [
 const StylishFlowerReviews = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Function to calculate position styles for rotation effect
   const getCardStyle = (index) => {
     const diff = index - activeIndex;
     
-    // Logic for circular rotation
     let displayDiff = diff;
     if (diff > 4) displayDiff = diff - 8;
     if (diff < -4) displayDiff = diff + 8;
@@ -42,7 +40,6 @@ const StylishFlowerReviews = () => {
           Voices of FloraBloom
         </h2>
 
-        {/* Moving Pictures Container */}
         <div className="relative h-40 flex justify-center items-center mb-16">
           {reviewsData.map((review, index) => (
             <div
@@ -62,15 +59,12 @@ const StylishFlowerReviews = () => {
           ))}
         </div>
 
-        {/* Review Detail Content */}
         <div className="max-w-2xl mx-auto text-center min-h-55">
           <div className="bg-pink-100 p-8 rounded-[40px] shadow-xl border border-pink-100 relative">
-            {/* Decorative Quote Mark */}
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-pink-500 text-white w-12 h-12 rounded-full flex items-center justify-center text-3xl font-serif shadow-lg">
               “
             </div>
 
-            {/* Stars */}
             <div className="flex justify-center mb-4 mt-2">
               {[...Array(5)].map((_, i) => (
                 <svg
@@ -84,12 +78,10 @@ const StylishFlowerReviews = () => {
               ))}
             </div>
 
-            {/* Comment */}
             <p className="text-xl text-gray-600 italic leading-relaxed mb-6">
               {reviewsData[activeIndex].comment}
             </p>
 
-            {/* Name */}
             <h4 className="text-2xl font-bold text-gray-800 tracking-tight">
               {reviewsData[activeIndex].name}
             </h4>

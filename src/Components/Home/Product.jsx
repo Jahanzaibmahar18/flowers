@@ -5,7 +5,6 @@ import { Heart, Eye, ShoppingCart } from 'lucide-react';
 import { useCart } from '../../Context/CartContext';
 import { toast } from 'react-toastify';
 
-// Images
 import flowers1 from '../../assets/flowers1.webp';
 import flowers2 from '../../assets/flowers2.webp';
 import flowers3 from '../../assets/flowers3.webp';
@@ -85,12 +84,10 @@ const ProductCarousel = () => {
 
               <div className="group relative bg-white overflow-hidden shadow-sm border border-gray-100 rounded-xl">
 
-                {/* Badge */}
                 <div className="absolute top-3 left-3 z-20 bg-pink-500 text-white text-[10px] font-bold px-3 py-1 rounded-full">
                   New
                 </div>
 
-                {/* Image */}
                 <div className="relative h-80 overflow-hidden bg-gray-100">
 
                   <img
@@ -105,7 +102,6 @@ const ProductCarousel = () => {
                     className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-all duration-500"
                   />
 
-                  {/* Icons */}
                   <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
 
                     <button className="p-2 bg-white rounded-full text-gray-600 hover:bg-[#F6339A] hover:text-white transition shadow">
@@ -126,7 +122,6 @@ const ProductCarousel = () => {
                   </div>
                 </div>
 
-                {/* Info */}
                 <div className="p-4 text-center">
                   <h3 className="font-medium text-gray-800 hover:text-pink-500 cursor-pointer">
                     {product.title}

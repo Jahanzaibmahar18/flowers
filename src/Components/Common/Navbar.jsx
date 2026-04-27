@@ -47,8 +47,6 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="flex justify-between h-20 items-center">
-
-          {/* LOGO */}
           <div className="flex items-center">
             <img
               src={FLORA}
@@ -57,7 +55,6 @@ const Navbar = () => {
             />
           </div>
 
-          {/* NAV LINKS */}
           <div className="hidden md:flex space-x-6">
             {navLinks.map((link) => (
               <Link
@@ -70,16 +67,13 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* ICONS */}
           <div className="flex items-center gap-4">
 
-            {/* SEARCH */}
             <div className="relative">
               <button onClick={() => setShowSearch(!showSearch)}>
                 <Search size={22} />
               </button>
 
-              {/* SEARCH DROPDOWN */}
               {showSearch && (
                 <div className="absolute right-0 top-12 w-[90vw] sm:w-96 bg-white shadow-lg rounded-lg z-50 p-4">
                   <input
@@ -122,7 +116,6 @@ const Navbar = () => {
               )}
             </div>
 
-            {/* CART */}
             <div className="relative">
 
               <button onClick={() => setShowCart(!showCart)}>
@@ -133,18 +126,15 @@ const Navbar = () => {
                 </span>
               </button>
 
-              {/* CART DROPDOWN */}
               {showCart && (
                 <div className="absolute right-0 top-12 w-[90vw] sm:w-96 bg-white shadow-lg rounded-lg z-50">
 
-                  {/* EMPTY */}
                   {cartItems.length === 0 ? (
                     <div className="p-4 text-center text-gray-500">
                       Your cart is empty
                     </div>
                   ) : (
                     <>
-                      {/* ITEMS */}
                       <div className="max-h-64 overflow-y-auto divide-y">
 
                         {cartItems.map((item) => (
@@ -166,7 +156,6 @@ const Navbar = () => {
                                 Rs. {item.price.toLocaleString()}
                               </p>
 
-                              {/* QTY */}
                               <div className="flex items-center gap-2 mt-1">
 
                                 <button
@@ -193,7 +182,6 @@ const Navbar = () => {
 
                             </div>
 
-                            {/* DELETE */}
                             <button
                               onClick={() => removeFromCart(item.id)}
                               className="text-red-500"
@@ -206,7 +194,6 @@ const Navbar = () => {
 
                       </div>
 
-                      {/* TOTAL */}
                       <div className="p-4 border-t">
 
                         <div className="flex justify-between font-bold">
@@ -230,8 +217,6 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-
-            {/* MOBILE MENU */}
             <button onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X /> : <Menu />}
             </button>
@@ -240,7 +225,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg">
           <div className="px-4 pt-2 pb-3 space-y-1">
