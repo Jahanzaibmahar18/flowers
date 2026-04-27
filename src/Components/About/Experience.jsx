@@ -12,7 +12,7 @@ const Experience = () => {
       title: "Floral Arrangements",
       desc: "We specialize in creating elegant floral arrangements using fresh and artificial flowers, designed to suit every occasion. From classic bouquets to luxurious statement pieces.",
       image: img1,
-      // Fixed heights that increase: Small -> Medium -> Large
+      
       size: "h-[450px]" 
     },
     {
