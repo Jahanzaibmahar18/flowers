@@ -48,7 +48,7 @@ const Addtocart = () => {
 
                         <div className="bg-white shadow rounded-lg overflow-x-auto">
 
-                            <table className="w-full min-w-[500px]">
+                            <table className="w-full min-w-125">
 
                                 <thead className="bg-gray-100">
                                     <tr>
@@ -73,7 +73,7 @@ const Addtocart = () => {
                                                         alt={item.title}
                                                         className="w-12 h-12 sm:w-14 sm:h-14 rounded object-cover"
                                                     />
-                                                    <span className="font-medium text-sm sm:text-base truncate max-w-[120px] sm:max-w-none">
+                                                    <span className="font-medium text-sm sm:text-base truncate max-w-30 sm:max-w-none">
                                                         {item.title}
                                                     </span>
                                                 </div>
@@ -96,7 +96,7 @@ const Addtocart = () => {
                                                         <Minus size={14} sm:size={16} />
                                                     </button>
 
-                                                    <span className="px-2 text-sm sm:text-base min-w-[24px] text-center">
+                                                    <span className="px-2 text-sm sm:text-base min-w-6 text-center">
                                                         {item.quantity}
                                                     </span>
 

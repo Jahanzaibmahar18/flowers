@@ -59,7 +59,7 @@ const StylishFlowerReviews = () => {
           ))}
         </div>
 
-        <div className="max-w-xl md:max-w-2xl mx-auto text-center min-h-[140px] sm:min-h-55">
+        <div className="max-w-xl md:max-w-2xl mx-auto text-center min-h-35 sm:min-h-55">
           <div className="bg-pink-100 p-5 sm:p-8 rounded-2xl sm:rounded-[40px] shadow-xl border border-pink-100 relative">
             <div className="absolute -top-4 sm:-top-6 left-1/2 -translate-x-1/2 bg-pink-500 text-white w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl md:text-3xl font-serif shadow-lg">
               “
