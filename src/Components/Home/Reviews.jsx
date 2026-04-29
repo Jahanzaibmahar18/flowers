@@ -16,7 +16,7 @@ const StylishFlowerReviews = () => {
 
   const getCardStyle = (index) => {
     const diff = index - activeIndex;
-    
+
     let displayDiff = diff;
     if (diff > 4) displayDiff = diff - 8;
     if (diff < -4) displayDiff = diff + 8;
@@ -34,13 +34,13 @@ const StylishFlowerReviews = () => {
   };
 
   return (
-    <section className="py-20 bg-linear-to-b from-white to-pink-50 overflow-hidden">
+    <section className="py-12 sm:py-20 bg-linear-to-b from-white to-pink-50 overflow-hidden">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-4xl font-serif font-bold text-center text-gray-800 mb-16">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-center text-gray-800 mb-10 sm:mb-16">
           Voices of FloraBloom
         </h2>
 
-        <div className="relative h-40 flex justify-center items-center mb-16">
+        <div className="relative h-28 sm:h-32 md:h-40 flex justify-center items-center mb-10 sm:mb-16">
           {reviewsData.map((review, index) => (
             <div
               key={review.id}
@@ -48,20 +48,20 @@ const StylishFlowerReviews = () => {
               style={getCardStyle(index)}
               className="absolute transition-all duration-700 ease-in-out cursor-pointer"
             >
-              <div className={`p-1 rounded-full ${index === activeIndex ? 'bg-pink-500 shadow-2xl' : 'bg-gray-200'}`}>
+              <div className={`p-0.5 sm:p-1 rounded-full ${index === activeIndex ? 'bg-pink-500 shadow-2xl' : 'bg-gray-200'}`}>
                 <img
                   src={review.image}
                   alt={review.name}
-                  className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-white"
+                  className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover border-2 sm:border-4 border-white"
                 />
               </div>
             </div>
           ))}
         </div>
 
-        <div className="max-w-2xl mx-auto text-center min-h-55">
-          <div className="bg-pink-100 p-8 rounded-[40px] shadow-xl border border-pink-100 relative">
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-pink-500 text-white w-12 h-12 rounded-full flex items-center justify-center text-3xl font-serif shadow-lg">
+        <div className="max-w-xl md:max-w-2xl mx-auto text-center min-h-[140px] sm:min-h-55">
+          <div className="bg-pink-100 p-5 sm:p-8 rounded-2xl sm:rounded-[40px] shadow-xl border border-pink-100 relative">
+            <div className="absolute -top-4 sm:-top-6 left-1/2 -translate-x-1/2 bg-pink-500 text-white w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl md:text-3xl font-serif shadow-lg">
               “
             </div>
 
